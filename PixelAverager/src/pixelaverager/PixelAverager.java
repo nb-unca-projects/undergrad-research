@@ -1,4 +1,4 @@
-package pixelAverager;
+package pixelaverager;
 
 
 import javax.imageio.ImageIO;
