@@ -14,13 +14,14 @@ import java.awt.Color;
 public class PixelAverager {
 
   public static void main(String[] args) {
-		if(args.length != 2) {
+		if(args.length != 3) {
 			System.err.println("Invalid command line argument. Requires exactly two file names");
 			System.exit(1);
 		}
 
 		String file1 = args[0];
 		String file2 = args[1];
+                String fileOut = args[2];
 
 		System.out.println("Reading in files...");
 
@@ -41,13 +42,13 @@ public class PixelAverager {
 
 		BufferedImage avgImage = pAvg(image1, image2);
 		try {
-			ImageIO.write(avgImage, "bmp", new File("C:\\out.bmp"));
+			ImageIO.write(avgImage, "jpg", new File(fileOut));
 		} catch (IOException er) {
 			System.out.println("Error writing file.");
                         System.exit(1);
 		}
 
-		System.out.println("Created out.bmp");
+		System.out.println("Created " + fileOut);
 	}
 
 	public static BufferedImage pAvg(BufferedImage image1, BufferedImage image2) {
@@ -64,8 +65,8 @@ public class PixelAverager {
 		System.out.println("Averaging pixel values...");
 
 		//I feel like this method of averaging pixel values could be improved upon
-		for(int y=1; y<=height; y++) {
-			for(int x=1; x<=width; x++) {
+		for(int y=0; y<height; y++) {
+			for(int x=0; x<width; x++) {
 				int rgb1 = image1.getRGB(x, y);
 				int rgb2 = image2.getRGB(x, y);
 				//separate the individual components of rgb1
