@@ -1,4 +1,4 @@
-package edu.unca.cs.nbury.pixelAverager
+package pixelAverager;
 
 
 import javax.imageio.ImageIO;
@@ -34,15 +34,17 @@ public class PixelAverager {
 			image1 = ImageIO.read(imagefile1);
 			image2 = ImageIO.read(imagefile2);
 		} catch (IOException e) {
-			e.printStackTrace();
-		
+			System.err.println("Error reading file.");
+                        System.exit(1);
+                }
 		System.out.println("Successfully read in files");
 
 		BufferedImage avgImage = pAvg(image1, image2);
 		try {
 			ImageIO.write(avgImage, "bmp", new File("C:\\out.bmp"));
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (IOException er) {
+			System.out.println("Error writing file.");
+                        System.exit(1);
 		}
 
 		System.out.println("Created out.bmp");
@@ -52,7 +54,7 @@ public class PixelAverager {
 		int height = image1.getHeight();
 		int width = image1.getWidth();
 
-		BufferedImage result = new BufferedImage(width, height,TYPE_INT_ARGB);
+		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
 		if (height != image2.getHeight() || width != image2.getWidth()) {
 			System.err.println("These files are different sizes. Try uploading files with the same dimensions.");
