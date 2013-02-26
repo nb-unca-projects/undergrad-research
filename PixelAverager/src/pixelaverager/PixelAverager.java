@@ -74,7 +74,7 @@ public class PixelAverager {
 				int red1 = (rgb1 >> 16) & 0xFF;
 				int green1 = (rgb1 >> 8) & 0xFF;
 				int blue1 =(rgb1) & 0xFF;
-				//separate the individual components of rgb2
+                                //separate the individual components of rgb2
 				int alpha2  = (rgb2 >> 24) & 0xFF;
 				int red2 = (rgb2 >> 16) & 0xFF;
 				int green2 = (rgb2 >> 8) & 0xFF;
@@ -84,9 +84,11 @@ public class PixelAverager {
 				int green = (green1+green2)/2;
 				int blue = (blue1+blue2)/2;
 				int alpha = (alpha1+alpha2)/2;
-
-				Color newColor = new Color(red, green, blue, alpha);
-				int rgb = newColor.getRGB();
+                                
+                                int rgb = (alpha << 24) | 
+                                          (red << 16) | 
+                                          (green << 8) |
+                                          (blue);
 
 				result.setRGB(x, y, rgb);
 			}
