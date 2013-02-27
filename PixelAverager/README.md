@@ -1,8 +1,9 @@
 How to Use this Program
 =======================
 
-###### Build using your favorite tool
+First, build using your favorite build tool.
 
 
-###### In a command prompt:
+Then in a command prompt: <br>
+
     java -jar path/to/PixelAverager.jar [imagefile1] [imagefile2] [imageOutputfile]
