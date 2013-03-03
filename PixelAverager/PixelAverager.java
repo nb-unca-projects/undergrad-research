@@ -55,7 +55,7 @@ public class PixelAverager {
 		int height = image1.getHeight();
 		int width = image1.getWidth();
 
-		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
 		if (height != image2.getHeight() || width != image2.getWidth()) {
 			System.err.println("These files are different sizes. Try uploading files with the same dimensions.");
